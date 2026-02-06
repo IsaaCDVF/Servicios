@@ -1,0 +1,22 @@
+# Sistema de Servicios - Reglas para Apache
+
+# Proteger carpeta config (no accesible por URL)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^sql/ - [F,L]
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# Si no existe mod_rewrite, denegar acceso directo a config y sql
+<FilesMatch "^(connect_db|BD)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# Página por defecto
+DirectoryIndex index.php
+
+# Charset UTF-8
+AddDefaultCharset UTF-8

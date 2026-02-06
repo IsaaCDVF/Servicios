@@ -1,0 +1,18 @@
+# No subir credenciales de la base de datos
+config/connect_db.php
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs y editores
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs y temporales
+*.log
+*.tmp
+*.temp
+.cache/
